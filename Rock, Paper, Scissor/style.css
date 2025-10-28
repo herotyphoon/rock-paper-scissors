@@ -1,0 +1,52 @@
+body {
+    background-color: grey;
+    font-size: medium;
+    font-weight: 120;
+}
+
+button {
+    padding: 10px;
+    padding-right: 15px;
+    border-radius: 100px;
+    background-color: rgb(129, 129, 129);
+    border-color: rgb(255, 217, 0);
+    margin: 10px;
+    align-items: center;
+}
+
+button .img {
+    padding-top: 15px;
+}
+
+img {
+    height: 100px;
+}
+
+p {
+    margin: 10px;
+}
+
+.moves {
+    font-size: larger;
+    font-weight: 150;
+}
+.moves img {
+    padding: 10px;
+    padding-right: 15px;
+    border: 5px;
+    border-radius: 100px;
+    background-color: rgb(129, 129, 129);
+    border-color: rgb(255, 217, 0);
+    margin: 10px;
+    align-items: center;
+}
+
+.result {
+    font-size: xx-large;
+    font-weight: 200;
+}
+
+.score {
+    font-size: x-large;
+    font-weight: 200;
+}
