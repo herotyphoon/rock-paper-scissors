@@ -9,7 +9,7 @@ fetchScore(); // Gets the previous score counter from localStorage
 // Main code that runs whenever the game is played
 function playGame(playerMove) {
     const computerMove = chooseCompMove();
-    const result = getResult(playerMove);
+    const result = getResult(playerMove, computerMove);
     
     updateScore(result);
     displayMoves(playerMove, computerMove, result);
@@ -29,7 +29,7 @@ function chooseCompMove() {
 }
 
 // Decides and returns the result
-function getResult(playerMove) {
+function getResult(playerMove, computerMove) {
     let result = '';
     
     if (playerMove === 'Rock') {
@@ -113,6 +113,7 @@ function resetScore() {
 
     const newScore = JSON.stringify(score);
     localStorage.setItem('score', newScore);
-
+    document.getElementById('result').innerHTML = '';
+    document.getElementById('moves').innerHTML = '';
     displayScore();
 }
