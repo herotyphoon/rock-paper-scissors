@@ -6,19 +6,6 @@ let score = {
 
 fetchScore();
 
-
-
-function chooseCompMove() {
-    const move = Math.random();
-    if (move <= 1 / 3) {
-        return 'Rock';
-    } else if (move <= 2 / 3) {
-        return 'Paper';
-    } else {
-        return 'Scissors';
-    }
-}
-
 function playGame(playerMove) {
     const computerMove = chooseCompMove();
     let result = '';
@@ -47,7 +34,6 @@ function playGame(playerMove) {
             result += 'Tie';
         }
     }
-
     updateScore(result);
     document.getElementById('moves').innerHTML = 
         `You <img src="./images/${playerMove}.png" alt="${computerMove}"> <img src="./images/${computerMove}.png" alt="${playerMove}"> Computer`;
@@ -57,6 +43,27 @@ function playGame(playerMove) {
         document.getElementById('result').innerText = `You ${result}.`;
     }
     
+    displayScore();
+}
+    
+function chooseCompMove() {
+    const move = Math.random();
+    if (move <= 1 / 3) {
+        return 'Rock';
+    } else if (move <= 2 / 3) {
+        return 'Paper';
+    } else {
+        return 'Scissors';
+    }
+}
+
+function fetchScore() {
+    const savedScore = JSON.parse(localStorage.getItem('score'));
+
+    if (savedScore) {
+        score = savedScore;
+    }
+
     displayScore();
 }
 
@@ -73,15 +80,6 @@ function updateScore(result) {
     localStorage.setItem('score', newScore);
 }
 
-function fetchScore() {
-    const savedScore = JSON.parse(localStorage.getItem('score'));
-
-    if (savedScore) {
-        score = savedScore;
-    }
-
-    displayScore();
-}
 
 function  displayScore() {
     document.getElementById('score').innerText =
@@ -100,4 +98,5 @@ function resetScore() {
 
     displayScore();
 }
+
 
